@@ -25,45 +25,121 @@
             outline: 2px solid #3b82f6; /* בלויער ראַם בײַם פֿאָקוס */
             outline-offset: 2px;
         }
+        /* נײַע סטײַלן פֿאַר מער 'לעבעדיקן' אויסזען */
+        .card-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 1.5rem; /* גרעסערע ראַדיוס פֿאַר ווייכערע עקן */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1 ); /* מער אויסגעשפּרייטער שאָטן */
+            width: 100%;
+            max-width: 28rem; /* עפּעס ברייטער ווי max-w-md */
+            text-align: center;
+        }
+        .hotline-section {
+            background-color: #e0f2fe; /* ליכטיק בלוי */
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s ease-in-out; /* אַנימאַציע בײַם האָווער */
+        }
+        .hotline-section:hover {
+            transform: translateY(-5px); /* הייבט זיך אַ ביסל בײַם האָווער */
+        }
+        .hotline-title {
+            font-size: 1.25rem; /* טעקסט-xl */
+            font-weight: 600; /* פֿאָנט-סעמיבאָלד */
+            color: #1e40af; /* דונקעלער בלוי */
+            margin-bottom: 0.5rem;
+        }
+        .hotline-number {
+            font-size: 2rem; /* טעקסט-3xl */
+            font-weight: 700; /* פֿאָנט-באָלד */
+            color: #2563eb; /* בלוי */
+        }
+        .support-section {
+            background-color: #f3f4f6; /* ליכטיק גרוי */
+            padding: 1.5rem;
+            border-radius: 1rem;
+        }
+        .support-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .support-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .support-item:last-child {
+            margin-bottom: 0;
+        }
+        .support-label {
+            font-weight: 500;
+            color: #4b5563;
+        }
+        .support-value {
+            color: #6b7280;
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
 
-    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md text-center">
+    <div class="card-container">
 
         <!-- סעמאַנטישער העדער פֿאַר לאָגאָ און טיטל -->
         <header class="mb-8">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/96842623/LceurQlkHzJJEOxI.jpg" alt="קול סאטמאר סימבאָל" class="mx-auto mb-4 rounded-xl max-w-full h-auto object-contain"> <!-- נײַער בילד לינק און סטײַלינג פֿאַר נישט-אָפּגעהאַקטן סימבאָל -->
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/96842623/LceurQlkHzJJEOxI.jpg" alt="קול סאטמאר סימבאָל" class="mx-auto mb-4 max-w-full h-auto object-contain"> <!-- נײַער בילד לינק און סטײַלינג פֿאַר נישט-אָפּגעהאַקטן סימבאָל -->
             <h1 class="text-3xl font-bold text-gray-800">קול סאטמאר</h1>
         </header>
 
         <!-- סעמאַנטישער מײַן אינהאַלט פֿאַר די נומערן -->
         <main>
             <!-- הויפּט האטליניע נומער -->
-            <section class="bg-blue-100 p-6 rounded-xl mb-6">
-                <h2 class="text-xl font-semibold text-blue-800 mb-2">צענטראלע נומער</h2>
-                <a href="tel:+16056157777" class="text-3xl font-bold text-blue-600 hover:underline phone-number">605-615-7777</a>
+            <section class="hotline-section">
+                <h2 class="hotline-title">צענטראלע נומער</h2>
+                <a href="tel:+16056157777" class="hotline-number hover:underline phone-number">605-615-7777</a>
             </section>
 
-            <!-- לאקאלע האטליניע נומער -->
-            <section class="bg-blue-100 p-6 rounded-xl mb-6">
-                <h2 class="text-xl font-semibold text-blue-800 mb-2">לאקאלע נומער אין קרית יואל</h2>
-                <a href="tel:+18455374000" class="text-3xl font-bold text-blue-600 hover:underline phone-number">845-537-4000</a>
+            <!-- לאקאלע האטליניע נומערן -->
+            <section class="hotline-section">
+                <h2 class="hotline-title">לאקאלע נומערן אין קרית יואל</h2>
+                <a href="tel:+18455374000" class="hotline-number hover:underline phone-number">845-537-4000</a>
+                  
+
+                <a href="tel:+18459511110" class="hotline-number hover:underline phone-number">845-951-1110</a>
+            </section>
+
+            <!-- אפסטעיט נומער -->
+            <section class="hotline-section">
+                <h2 class="hotline-title">אפסטעיט נומער</h2>
+                <a href="tel:+18454148018" class="hotline-number hover:underline phone-number">845-414-8018</a>
+            </section>
+
+            <!-- ברוקלין נומערן -->
+            <section class="hotline-section">
+                <h2 class="hotline-title">ברוקלין נומערן</h2>
+                <a href="tel:+17186891010" class="hotline-number hover:underline phone-number">718-689-1010</a>
+                  
+
+                <a href="tel:+17188879288" class="hotline-number hover:underline phone-number">718-887-9288</a>
             </section>
 
             <!-- קאסטומער סופּארט סעקציע -->
-            <section class="bg-gray-100 p-6 rounded-xl">
-                <h2 class="text-xl font-semibold text-gray-800 mb-4">קאסטומער סופּארט</h2>
+            <section class="support-section">
+                <h2 class="support-title">קאסטומער סופּארט</h2>
                 <div class="space-y-4 text-right">
                     <!-- טעלעפֿאן נומער פֿאַר סופּאָרט -->
-                    <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-700">טעלעפֿאן:</span>
-                        <a href="tel:+17183957072" class="text-gray-600 hover:underline phone-number">+1 (718 ) 395-7072</a>
+                    <div class="support-item">
+                        <span class="support-label">טעלעפֿאן:</span>
+                        <a href="tel:+17183957072" class="support-value hover:underline phone-number">+1 (718 ) 395-7072</a>
                     </div>
                     <!-- אימעיל אַדרעס פֿאַר סופּאָרט -->
-                    <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-700">אימעיל:</span>
-                        <a href="mailto:kolsatmarfiles@gmail.com" class="text-gray-600 hover:underline">kolsatmarfiles@gmail.com</a>
+                    <div class="support-item">
+                        <span class="support-label">אימעיל:</span>
+                        <a href="mailto:kolsatmarfiles@gmail.com" class="support-value hover:underline">kolsatmarfiles@gmail.com</a>
                     </div>
                 </div>
             </section>
