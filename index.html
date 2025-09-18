@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>האטליניע וועבזייטל</title>
+    <title>האטליניע וועבזייטל - קול סאטמאר</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,13 +11,19 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            background-color: #f5f6f3ff; /* א ליכטיקער הינטערגרונט קאָליר */
             direction: rtl;
             text-align: right;
         }
         .phone-number {
-            direction: ltr;
+            direction: ltr; /* טעלעפֿאָן נומערן זענען בעסער צו לייענען פֿון לינקס צו רעכטס */
             text-align: left;
+        }
+        /* קליינע פֿאַרבעסערונג פֿאַר פֿאָקוס סטײַל פֿאַר אַקסעסיביליטעט */
+        a:focus,
+        button:focus {
+            outline: 2px solid #3b82f6; /* בלויער ראַם בײַם פֿאָקוס */
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -25,43 +31,48 @@
 
     <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md text-center">
 
-        <!-- Hotline Logo and Title -->
-        <div class="mb-8">
-            <img src="https://i.ibb.co/Q7yqPQGP/image.png" alt="קול סאטמאר סימבאָל" class="mx-auto mb-4 rounded-xl">
+        <!-- סעמאַנטישער העדער פֿאַר לאָגאָ און טיטל -->
+        <header class="mb-8">
+            <img src="https://i.ibb.co/Q7yqPQGP/image.png" alt="קול סאטמאר סימבאָל" class="mx-auto mb-4 rounded-xl w-24 h-24 object-contain"> <!-- בילד אָפּטימיזאַציע: קלענערע גרייס פֿאַר לאָגאָ -->
             <h1 class="text-3xl font-bold text-gray-800">קול סאטמאר</h1>
-        </div>
+        </header>
 
-        <!-- Main Hotline Number -->
-        <div class="bg-blue-100 p-6 rounded-xl mb-6">
-            <h2 class="text-xl font-semibold text-blue-800 mb-2">צענטראלע נומער</h2>
-            <a href="tel:+16056157777" class="text-3xl font-bold text-blue-600 hover:underline phone-number"> 605-615-7777</a>
-        </div>
+        <!-- סעמאַנטישער מײַן אינהאַלט פֿאַר די נומערן -->
+        <main>
+            <!-- הויפּט האטליניע נומער -->
+            <section class="bg-blue-100 p-6 rounded-xl mb-6">
+                <h2 class="text-xl font-semibold text-blue-800 mb-2">צענטראלע נומער</h2>
+                <a href="tel:+16056157777" class="text-3xl font-bold text-blue-600 hover:underline phone-number">605-615-7777</a>
+            </section>
 
-        <!-- Local Hotline Number -->
-        <div class="bg-blue-100 p-6 rounded-xl mb-6">
-            <h2 class="text-xl font-semibold text-blue-800 mb-2">לאקאלע נומער אין קרית יואל</h2>
-            <a href="tel:+18455374000" class="text-3xl font-bold text-blue-600 hover:underline phone-number"> 845-537-4000</a>
-        </div>
+            <!-- לאקאלע האטליניע נומער -->
+            <section class="bg-blue-100 p-6 rounded-xl mb-6">
+                <h2 class="text-xl font-semibold text-blue-800 mb-2">לאקאלע נומער אין קרית יואל</h2>
+                <a href="tel:+18455374000" class="text-3xl font-bold text-blue-600 hover:underline phone-number">845-537-4000</a>
+            </section>
 
-        <!-- Customer Support Section -->
-        <div class="bg-gray-100 p-6 rounded-xl">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">קאסטומער סופּארט</h2>
-            <div class="space-y-4 text-right">
-                <!-- Phone Number for Support -->
-                <div class="flex items-center justify-between">
-                    <span class="font-medium text-gray-700">טעלעפֿאָן:</span>
-                    <a href="tel:+17183957072" class="text-gray-600 hover:underline phone-number">+1 (718) 395-7072</a>
+            <!-- קאסטומער סופּארט סעקציע -->
+            <section class="bg-gray-100 p-6 rounded-xl">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">קאסטומער סופּארט</h2>
+                <div class="space-y-4 text-right">
+                    <!-- טעלעפֿאן נומער פֿאַר סופּאָרט -->
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium text-gray-700">טעלעפֿאן:</span>
+                        <a href="tel:+17183957072" class="text-gray-600 hover:underline phone-number">+1 (718 ) 395-7072</a>
+                    </div>
+                    <!-- אימעיל אַדרעס פֿאַר סופּאָרט -->
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium text-gray-700">אימעיל:</span>
+                        <a href="mailto:kolsatmarfiles@gmail.com" class="text-gray-600 hover:underline">kolsatmarfiles@gmail.com</a>
+                    </div>
                 </div>
-                <!-- Email Address for Support -->
-                <div class="flex items-center justify-between">
-                    <span class="font-medium text-gray-700">אימעיל:</span>
-                    <a href="mailto:kolsatmarfiles@gmail.com" class="text-gray-600 hover:underline">kolsatmarfiles@gmail.com</a>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <!-- Footer Note -->
-        <p class="text-gray-400 text-sm mt-6">אַלע רעכטן רעזערווירט © 2024</p>
+        <!-- סעמאַנטישער פֿוטער פֿאַר קאָפּירײַט -->
+        <footer class="text-gray-400 text-sm mt-6">
+            <p>אַלע רעכטן רעזערווירט © 2025</p>
+        </footer>
     </div>
 
 </body>
