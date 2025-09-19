@@ -13,13 +13,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* ליכטיק גרוי הינטערגרונט */
+            font-family: 'Heebo', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             direction: rtl;
             text-align: right;
+            line-height: 1.6;
+        }
+        
+        /* פארבעסערטע טיפאגראפיע */
+        h1, h2, h3 {
+            font-family: 'Heebo', sans-serif;
+            font-weight: 700;
+        }
+        
+        .title-font {
+            font-family: 'Heebo', sans-serif;
         }
         .phone-number {
             direction: ltr; /* טעלעפֿאָן נומערן זענען בעסער צו לייענען פֿון לינקס צו רעכטס */
@@ -158,6 +169,28 @@
             to { transform: scale(1) translateY(0); opacity: 1; }
         }
         
+        /* גלייכע הייך פאר לאקאלע נומערן קעסטלעך */
+        .local-numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .local-number-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .local-number-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-color: #3b82f6;
+        }
+        
         /* רעספאנסיוו פארבעסערונגען */
         @media (max-width: 768px) {
             .phone-card {
@@ -168,6 +201,10 @@
                 margin: 5% auto;
                 width: 95%;
                 height: 85%;
+            }
+            
+            .local-numbers-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -195,12 +232,17 @@
     <div class="max-w-5xl mx-auto fade-in">
 
         <!-- סעמאַנטישער העדער פֿאַר לאָגאָ און טיטל -->
-        <header class="text-center mb-8">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/96842623/JpHYSecCcOHvZGZv.png" alt="קול סאטמאר סימבאָל" class="mx-auto mb-4 w-48 h-auto object-contain">
+        <header class="text-center mb-12">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/96842623/JpHYSecCcOHvZGZv.png" alt="קול סאטמאר סימבאָל" class="mx-auto mb-6 w-52 h-auto object-contain drop-shadow-lg">
             
-            <!-- נײַע לענגליכע באָקס פֿאַרן טיטל -->
-            <div class="bg-blue-600 text-white py-4 px-6 rounded-xl shadow-md mb-8">
-                <h1 class="text-5xl font-extrabold">קול סאטמאר</h1>
+            <!-- פארבעסערטע טיטל סעקציע מיט גראדיענט און אונטער-טיטל -->
+            <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-8 px-8 rounded-2xl shadow-xl mb-8 relative overflow-hidden">
+                <!-- דעקאראטיווע עלעמענטן -->
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                <div class="relative z-10">
+                    <h1 class="text-6xl font-black mb-3 tracking-tight">קול סאטמאר</h1>
+                    <p class="text-xl font-medium opacity-90 tracking-wide">די צענטראלע פלאטפארמע פאר חסידי סאטמאר</p>
+                </div>
             </div>
         </header>
 
@@ -208,147 +250,185 @@
         <main class="space-y-8">
 
             <!-- צענטראלע נומערן סעקציע -->
-            <section>
-                <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">צענטראלע נומערן</h2>
+            <section class="relative">
+                <!-- סעקציע טיטל מיט דעקאראטיווע לינייע -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">צענטראלע נומערן</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
+                </div>
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <a href="tel:+16056157777" class="phone-card block bg-white p-6 rounded-xl shadow-md">
-                        <p class="text-3xl font-bold text-blue-600 phone-number phone-number-link">
-                            <span class="phone-icon">📞</span>605-615-7777
-                        </p>
+                    <a href="tel:+16056157777" class="phone-card block bg-gradient-to-br from-white to-blue-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-blue-700 phone-number phone-number-link">
+                                605-615-7777
+                            </p>
+                        </div>
                     </a>
-                    <a href="tel:+18455374000" class="phone-card block bg-white p-6 rounded-xl shadow-md">
-                        <p class="text-3xl font-bold text-blue-600 phone-number phone-number-link">
-                            <span class="phone-icon">📞</span>845-537-4000
-                        </p>
+                    <a href="tel:+18455374000" class="phone-card block bg-gradient-to-br from-white to-indigo-50 p-8 rounded-2xl shadow-lg border border-indigo-100">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-indigo-700 phone-number phone-number-link">
+                                845-537-4000
+                            </p>
+                        </div>
                     </a>
                 </div>
             </section>
 
             <!-- לאקאלע נומערן סעקציע -->
-            <section>
-                <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">לאקאלע נומערן</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <section class="relative">
+                <!-- סעקציע טיטל מיט דעקאראטיווע לינייע -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">לאקאלע נומערן</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="local-numbers-grid">
                     
                     <!-- אפסטעיט נומערן -->
-                    <div class="phone-card bg-white p-6 rounded-xl shadow-md text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">🏔️ אפסטעיט</h3>
-                        <div class="space-y-3">
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">אפסטעיט</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
                             <a href="tel:+18459511110" class="phone-number-link block">
                                 <p class="text-xl font-bold text-blue-600 phone-number">
-                                    <span class="phone-icon">📞</span>845-951-1110
+                                    845-951-1110
                                 </p>
                             </a>
                             <a href="tel:+18454148018" class="phone-number-link block">
                                 <p class="text-xl font-bold text-blue-600 phone-number">
-                                    <span class="phone-icon">📞</span>845-414-8018
+                                    845-414-8018
                                 </p>
                             </a>
                         </div>
                     </div>
                     
                     <!-- ברוקלין נומערן -->
-                    <div class="phone-card bg-white p-6 rounded-xl shadow-md text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">🏙️ ברוקלין</h3>
-                        <div class="space-y-3">
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">ברוקלין</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
                             <a href="tel:+17186891010" class="phone-number-link block">
                                 <p class="text-xl font-bold text-blue-600 phone-number">
-                                    <span class="phone-icon">📞</span>718-689-1010
+                                    718-689-1010
                                 </p>
                             </a>
                             <a href="tel:+17188879288" class="phone-number-link block">
                                 <p class="text-xl font-bold text-blue-600 phone-number">
-                                    <span class="phone-icon">📞</span>718-887-9288
+                                    718-887-9288
                                 </p>
                             </a>
                         </div>
                     </div>
 
                     <!-- אינטערנאציאנאלע נומערן -->
-                    <div class="phone-card bg-white p-6 rounded-xl shadow-md text-center">
-                        <h3 class="text-lg font-bold text-gray-800 mb-3">🇬🇧 לאנדאן\מאנטשעסטער</h3>
-                        <a href="tel:+443305511714" class="phone-number-link block mb-4">
-                            <p class="text-lg font-bold text-blue-600 phone-number">
-                                <span class="phone-icon">📞</span>+44 330-551-1714
-                            </p>
-                        </a>
-                        <h3 class="text-lg font-bold text-gray-800 mb-3">🇧🇷 בראזיל</h3>
-                        <a href="tel:+5531976149605" class="phone-number-link block">
-                            <p class="text-lg font-bold text-blue-600 phone-number">
-                                <span class="phone-icon">📞</span>+55 31-97614-9605
-                            </p>
-                        </a>
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <div class="flex-grow flex flex-col justify-center">
+                            <h3 class="text-lg font-bold text-gray-800 mb-3 title-font">לאנדאן\מאנטשעסטער</h3>
+                            <a href="tel:+443305511714" class="phone-number-link block mb-4">
+                                <p class="text-lg font-bold text-blue-600 phone-number">
+                                    +44 330-551-1714
+                                </p>
+                            </a>
+                            <h3 class="text-lg font-bold text-gray-800 mb-3 title-font">בראזיל</h3>
+                            <a href="tel:+5531976149605" class="phone-number-link block">
+                                <p class="text-lg font-bold text-blue-600 phone-number">
+                                    +55 31-97614-9605
+                                </p>
+                            </a>
+                        </div>
                     </div>
                     
                     <!-- נאך אינטערנאציאנאלע נומערן -->
-                    <div class="phone-card bg-white p-6 rounded-xl shadow-md text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">🇮🇱 ארץ ישראל</h3>
-                        <a href="tel:+972723333395" class="phone-number-link block">
-                            <p class="text-xl font-bold text-blue-600 phone-number">
-                                <span class="phone-icon">📞</span>072.333.3395
-                            </p>
-                        </a>
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">ארץ ישראל</h3>
+                        <div class="flex-grow flex flex-col justify-center">
+                            <a href="tel:+972723333395" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    072.333.3395
+                                </p>
+                            </a>
+                        </div>
                     </div>
                     
                     <!-- אויסטראליע נומער -->
-                    <div class="phone-card bg-white p-6 rounded-xl shadow-md text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">🇦🇺 אויסטראליע</h3>
-                        <a href="tel:+61240183912" class="phone-number-link block">
-                            <p class="text-xl font-bold text-blue-600 phone-number">
-                                <span class="phone-icon">📞</span>+61 240183912
-                            </p>
-                        </a>
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">אויסטראליע</h3>
+                        <div class="flex-grow flex flex-col justify-center">
+                            <a href="tel:+61240183912" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    +61 240183912
+                                </p>
+                            </a>
+                        </div>
                     </div>
                     
                     <!-- אנטווערפן נומער -->
-                    <div class="phone-card bg-white p-6 rounded-xl shadow-md text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">🇧🇪 אנטווערפן</h3>
-                        <a href="tel:+32480201265" class="phone-number-link block">
-                            <p class="text-xl font-bold text-blue-600 phone-number">
-                                <span class="phone-icon">📞</span>+32 480-201-265
-                            </p>
-                        </a>
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">אנטווערפן</h3>
+                        <div class="flex-grow flex flex-col justify-center">
+                            <a href="tel:+32480201265" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    +32 480-201-265
+                                </p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
             
             <!-- אפדעיטס PDF לינק סעקציע -->
-            <section class="phone-card bg-gradient-to-r from-blue-500 to-blue-600 text-white p-8 rounded-xl shadow-lg cursor-pointer transform hover:scale-105 transition-all duration-300" onclick="openPdfModal()">
+            <section class="phone-card bg-gradient-to-r from-blue-500 to-blue-600 text-white p-8 rounded-xl shadow-lg cursor-pointer transform hover:scale-105 transition-all duration-300" onclick="togglePdf()">
                 <div class="block text-center">
-                    <h2 class="text-3xl font-extrabold mb-2">📄 אפדעיטס</h2>
+                    <h2 class="text-3xl font-extrabold mb-2">אפדעיטס</h2>
                     <p class="text-lg opacity-90">דריקט דא צו זען די לעצטע אפדעיטס</p>
-                    <div class="mt-4 text-sm opacity-75">
-                        <span>🔍 עפנט זיך אויף דער זייט</span>
-                    </div>
+
                 </div>
             </section>
+            
+            <!-- PDF ווייזער סעקציע -->
+            <div id="pdfContainer" class="hidden bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out">
+                <div class="flex justify-between items-center p-4 bg-blue-600 text-white">
+                    <h3 class="text-lg font-bold">אפדעיטס - קול סאטמאר</h3>
+                    <button onclick="togglePdf()" class="text-white hover:text-gray-200 text-2xl font-bold" title="פארמאכן">&times;</button>
+                </div>
+                <iframe id="pdfViewer" class="w-full h-96 border-none" src=""></iframe>
+            </div>
 
             <!-- קאסטומער סופּארט סעקציע -->
-            <section class="phone-card bg-white p-6 rounded-xl shadow-md">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">🛠️ קאסטומער סופּארט</h2>
+            <section class="phone-card bg-gradient-to-br from-white to-orange-50 p-8 rounded-2xl shadow-lg border border-orange-100 relative">
+                <!-- סעקציע טיטל מיט דעקאראטיווע לינייע -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 title-font">קאסטומער סופּארט</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto rounded-full"></div>
+                </div>
+                
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                        <span class="font-medium text-gray-600 flex items-center">
-                            📞 טעלעפֿאן:
+                    <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 border border-orange-100">
+                        <span class="font-medium text-gray-700 flex items-center title-font">
+                            <span class="text-2xl mr-3">📞</span>
+                            טעלעפֿאן:
                         </span>
-                        <a href="tel:+17183957072" class="text-blue-600 hover:text-blue-800 phone-number font-semibold transition-colors">+1 (718) 395-7072</a>
+                        <a href="tel:+17183957072" class="text-blue-600 hover:text-blue-800 phone-number font-semibold transition-colors hover:scale-105">+1 (718) 395-7072</a>
                     </div>
-                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                        <span class="font-medium text-gray-600 flex items-center">
-                            📞 טעלעפֿאן:
+                    <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 border border-orange-100">
+                        <span class="font-medium text-gray-700 flex items-center title-font">
+                            <span class="text-2xl mr-3">📞</span>
+                            טעלעפֿאן:
                         </span>
-                        <a href="tel:+18454442738" class="text-blue-600 hover:text-blue-800 phone-number font-semibold transition-colors">+1 (845) 444-2738</a>
+                        <a href="tel:+18454442738" class="text-blue-600 hover:text-blue-800 phone-number font-semibold transition-colors hover:scale-105">+1 (845) 444-2738</a>
                     </div>
-                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                        <span class="font-medium text-gray-600 flex items-center">
-                            📧 אימעיל:
+                    <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 border border-orange-100">
+                        <span class="font-medium text-gray-700 flex items-center title-font">
+                            <span class="text-2xl mr-3">📧</span>
+                            אימעיל:
                         </span>
-                        <a href="mailto:kolsatmarfiles@gmail.com" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">kolsatmarfiles@gmail.com</a>
+                        <a href="mailto:kolsatmarfiles@gmail.com" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors hover:scale-105 break-all">kolsatmarfiles@gmail.com</a>
                     </div>
-                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                        <span class="font-medium text-gray-600 flex items-center">
-                            📧 אימעיל:
+                    <div class="flex items-center justify-between p-4 bg-white/70 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 border border-orange-100">
+                        <span class="font-medium text-gray-700 flex items-center title-font">
+                            <span class="text-2xl mr-3">📧</span>
+                            אימעיל:
                         </span>
-                        <a href="mailto:klstmr@gmail.com" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Klstmr@gmail.com</a>
+                        <a href="mailto:klstmr@gmail.com" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors hover:scale-105">Klstmr@gmail.com</a>
                     </div>
                 </div>
             </section>
@@ -360,48 +440,26 @@
         </footer>
     </div>
 
-    <!-- PDF מאדאל -->
-    <div id="pdfModal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center p-4 bg-blue-600 text-white rounded-t-lg">
-                <h3 class="text-lg font-bold">📄 אפדעיטס - קול סאטמאר</h3>
-                <span class="close text-white hover:text-gray-200" onclick="closePdfModal()" title="פארמאכן">&times;</span>
-            </div>
-            <iframe id="pdfViewer" class="pdf-viewer" src="" style="height: calc(100% - 60px);"></iframe>
-        </div>
-    </div>
-
     <script>
-        function openPdfModal() {
-            const modal = document.getElementById('pdfModal');
+        function togglePdf() {
+            const pdfContainer = document.getElementById('pdfContainer');
             const pdfViewer = document.getElementById('pdfViewer');
-            pdfViewer.src = 'https://files.manuscdn.com/user_upload_by_module/session_file/96842623/vSbaldnRDMYciMDe.pdf';
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // מנע סקראלינג פון די הויפט זייט
-        }
-
-        function closePdfModal() {
-            const modal = document.getElementById('pdfModal');
-            const pdfViewer = document.getElementById('pdfViewer');
-            modal.style.display = 'none';
-            pdfViewer.src = ''; // קלירן די PDF צו שפארן מעמארי
-            document.body.style.overflow = 'auto'; // ערלויבן סקראלינג צוריק
-        }
-
-        // פארמאכן די מאדאל ווען מען דריקט אויסערהאלב פון די אינהאלט
-        window.onclick = function(event) {
-            const modal = document.getElementById('pdfModal');
-            if (event.target == modal) {
-                closePdfModal();
+            
+            if (pdfContainer.classList.contains('hidden')) {
+                // עפענען די PDF
+                pdfContainer.classList.remove('hidden');
+                pdfViewer.src = 'https://files.manuscdn.com/user_upload_by_module/session_file/96842623/vSbaldnRDMYciMDe.pdf';
+                
+                // סקראלן צו די PDF סעקציע
+                setTimeout(() => {
+                    pdfContainer.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                // פארמאכן די PDF
+                pdfContainer.classList.add('hidden');
+                pdfViewer.src = ''; // קלירן די PDF צו שפארן מעמארי
             }
         }
-
-        // פארמאכן די מאדאל מיט ESC קי
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closePdfModal();
-            }
-        });
     </script>
 
 </body>
