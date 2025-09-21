@@ -176,6 +176,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            justify-content: center; /* Centers grid items if there's extra space */
         }
         
         .local-number-card {
@@ -259,18 +260,11 @@
                     <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <a href="tel:+16056157777" class="phone-card block bg-gradient-to-br from-white to-blue-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                <div class="flex justify-center">
+                    <a href="tel:+16056157777" class="phone-card block bg-gradient-to-br from-white to-blue-50 p-12 rounded-2xl shadow-lg border border-blue-100 w-full max-w-lg">
                         <div class="text-center">
                             <p class="text-3xl font-bold text-blue-700 phone-number phone-number-link">
                                 605-615-7777
-                            </p>
-                        </div>
-                    </a>
-                    <a href="tel:+18455374000" class="phone-card block bg-gradient-to-br from-white to-indigo-50 p-8 rounded-2xl shadow-lg border border-indigo-100">
-                        <div class="text-center">
-                            <p class="text-3xl font-bold text-indigo-700 phone-number phone-number-link">
-                                845-537-4000
                             </p>
                         </div>
                     </a>
@@ -286,6 +280,18 @@
                 </div>
                 
                 <div class="local-numbers-grid">
+                    
+                    <!-- קרית יואל נומערן -->
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">קרית יואל</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
+                            <a href="tel:+18455374000" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    845-537-4000
+                                </p>
+                            </a>
+                        </div>
+                    </div>
                     
                     <!-- אפסטעיט נומערן -->
                     <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
@@ -321,25 +327,18 @@
                         </div>
                     </div>
 
-                    <!-- אינטערנאציאנאלע נומערן -->
+                    <!-- אינטערנאציאנאלע נומערן - ערשטע שורה -->
                     <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">לאנדאן\\מאנטשעסטער</h3>
                         <div class="flex-grow flex flex-col justify-center">
-                            <h3 class="text-lg font-bold text-gray-800 mb-3 title-font">לאנדאן\מאנטשעסטער</h3>
-                            <a href="tel:+443305511714" class="phone-number-link block mb-4">
-                                <p class="text-lg font-bold text-blue-600 phone-number">
+                            <a href="tel:+443305511714" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
                                     +44 330-551-1714
-                                </p>
-                            </a>
-                            <h3 class="text-lg font-bold text-gray-800 mb-3 title-font">בראזיל</h3>
-                            <a href="tel:+5531976149605" class="phone-number-link block">
-                                <p class="text-lg font-bold text-blue-600 phone-number">
-                                    +55 31-97614-9605
                                 </p>
                             </a>
                         </div>
                     </div>
                     
-                    <!-- נאך אינטערנאציאנאלע נומערן -->
                     <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
                         <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">ארץ ישראל</h3>
                         <div class="flex-grow flex flex-col justify-center">
@@ -351,7 +350,6 @@
                         </div>
                     </div>
                     
-                    <!-- אויסטראליע נומער -->
                     <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
                         <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">אויסטראליע</h3>
                         <div class="flex-grow flex flex-col justify-center">
@@ -363,13 +361,18 @@
                         </div>
                     </div>
                     
-                    <!-- אנטווערפן נומער -->
-                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">אנטווערפן</h3>
-                        <div class="flex-grow flex flex-col justify-center">
+                    <!-- אינטערנאציאנאלע נומערן - צווייטע שורה (בראזיל און אנטווערפן) -->
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center col-span-full">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">בראזיל / אנטווערפן</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
+                            <a href="tel:+5531976149605" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    +55 31-97614-9605 (בראזיל)
+                                </p>
+                            </a>
                             <a href="tel:+32480201265" class="phone-number-link block">
                                 <p class="text-xl font-bold text-blue-600 phone-number">
-                                    +32 480-201-265
+                                    +32 480-201-265 (אנטווערפן)
                                 </p>
                             </a>
                         </div>
@@ -421,7 +424,7 @@
 
         <!-- סעמאַנטישער פֿוטער -->
         <footer class="text-center mt-12 py-8 border-t border-gray-200">
-            <p class="text-gray-600 text-lg">&copy; 2025 קול סאטמאר. אלע רעכטן פארהאלטן.</p>
+            <p class="text-gray-600 text-lg">&copy; 2025 קול סאטמאר.אלע רעכטן רעזעווירט.</p>
         </footer>
 
     </div>
