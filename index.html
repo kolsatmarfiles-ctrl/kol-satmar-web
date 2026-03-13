@@ -1,105 +1,494 @@
 <!DOCTYPE html>
-<html>
+<html lang="he" dir="rtl">
 <head>
-<!-- src="https://blocker.geder.org/info?user=G208289&ipaddr=127.0.0.1&group=Level Browser&item=Global Blacklist&reason=matches glob aistudio.google.com&url=http://aistudio.google.com/_/upload/0e6470ee-2689-4a3c-ac59-1573b8b762f0/file/0a99d92fb1b435444a29cbfa0c4fd9f72d4d6ef9ce904e5711b25b66597e0205&category=&categoryscore=score&httpstatuscode=200" -->
-<title>Geder - BlockPage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://blocker.geder.org/css/upgrade_style.css" async/>
-    <script src="https://blocker.geder.org/js/new_blocker.js" async></script>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" referrerpolicy="no-referrer"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+    <title>kol satmar</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/wBWkJzwd/transparent_image_500x500.png">
+    <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/wBWkJzwd/transparent_image_500x500.png">
+    <meta name="description" content="קול סאטמאר האטליניע - צענטראלע און לאקאלע טעלעפאון נומערן פאר די סאטמאר קהילה. אינטערנאציאנאלע נומערן און קאסטומער סופארט.">
+    <meta name="keywords" content="קול סאטמאר, האטליניע, טעלעפאון נומערן, סאטמאר קהילה, קרית יואל, ברוקלין">
+    <meta name="author" content="קול סאטמאר">
+    <meta property="og:title" content="קול סאטמאר - האטליניע וועבזייטל">
+    <meta property="og:description" content="צענטראלע און לאקאלע טעלעפאון נומערן פאר די סאטמאר קהילה">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Heebo', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            direction: rtl;
+            text-align: right;
+            line-height: 1.6;
+        }
+        
+        /* פארבעסערטע טיפאגראפיע */
+        h1, h2, h3 {
+            font-family: 'Heebo', sans-serif;
+            font-weight: 700;
+        }
+        
+        .title-font {
+            font-family: 'Heebo', sans-serif;
+        }
+        .phone-number {
+            direction: ltr; /* טעלעפֿאָן נומערן זענען בעסער צו לייענען פֿון לינקס צו רעכטס */
+            text-align: center; /* צענטרירט די נומערן */
+        }
+        /* קליינע פֿאַרבעסערונג פֿאַר פֿאָקוס סטײַל פֿאַר אַקסעסיביליטעט */
+        a:focus,
+        button:focus {
+            outline: 2px solid #3b82f6; /* בלויער ראַם בײַם פֿאָקוס */
+            outline-offset: 2px;
+        }
+        
+        /* מאדאל סטיילס פאר PDF ווייזער */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            height: 90%;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 1001;
+            cursor: pointer;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center; justify-content: center;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* פארבעסערטע אנימאציעס און איפעקטן */
+        .phone-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phone-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .phone-card:hover::before {
+            opacity: 1;
+        }
+        
+        .phone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .phone-number-link {
+            transition: all 0.2s ease;
+        }
+        
+        .phone-number-link:hover {
+            transform: scale(1.05);
+            color: #1d4ed8 !important;
+        }
+        
+        /* טעלעפאון איקאן */
+        .phone-icon {
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 1.2em;
+            opacity: 0.7;
+        }
+        
+        /* פייד-אין אנימאציע פאר די זייט */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* פארבעסערטע מאדאל אנימאציע */
+        .modal {
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from { transform: scale(0.9) translateY(-20px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        
+        /* גלייכע הייך פאר לאקאלע נומערן קעסטלעך */
+        .local-numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        
+        .local-number-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .local-number-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-color: #3b82f6;
+        }
+        
+        /* רעספאנסיוו פארבעסערונגען */
+        @media (max-width: 768px) {
+            .phone-card {
+                padding: 1rem;
+            }
+            
+            .modal-content {
+                margin: 5% auto;
+                width: 95%;
+                height: 85%;
+            }
+            
+            .local-numbers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .phone-number {
+                font-size: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            h3 {
+                font-size: 1.25rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-5xl mx-auto fade-in">
+
+        <header class="relative text-center mb-12 pt-12">
+            <div class="absolute top-4 left-4 z-50">
+                <div id="google_translate_element"></div>
+            </div>
+
+            <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'yi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+            <img src="https://i.postimg.cc/wBWkJzwd/transparent_image_500x500.png" alt="קול סאטמאר סימבאָל" class="mx-auto mb-6 w-52 h-auto object-contain drop-shadow-lg">
+            
+            <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-8 px-8 rounded-2xl shadow-xl mb-8 relative overflow-hidden mx-4">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                <div class="relative z-10">
+                    <h1 class="text-6xl font-black mb-3 tracking-tight">Hotline Alerts</h1>
+                    <h2 class="text-3xl font-bold mb-2">קול סאטמאר</h2>
+                    <p class="text-xl font-medium opacity-90 tracking-wide">Community Notifications & Updates</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="space-y-8">
+
+            <section class="relative">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">צענטראלע נומערן</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <a href="tel:+16056157777" class="phone-card block bg-gradient-to-br from-white to-blue-50 p-12 rounded-2xl shadow-lg border border-blue-100 w-full max-w-lg">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-blue-700 phone-number phone-number-link">
+                                605-615-7777
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="relative">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">לאקאלע נומערן</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="local-numbers-grid">
+                    
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">קרית יואל</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
+                            <a href="tel:+18455374000" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    845-537-4000
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">אפסטעיט</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
+                            <a href="tel:+18459511110" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    845-951-1110
+                                </p>
+                            </a>
+                            <a href="tel:+18454148018" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    845-414-8018
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">ברוקלין</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
+                            <a href="tel:+17186891010" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    718-689-1010
+                                </p>
+                            </a>
+                            <a href="tel:+17188879288" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    718-887-9288
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">לאנדאן\\מאנטשעסטער</h3>
+                        <div class="flex-grow flex flex-col justify-center">
+                            <a href="tel:+443305511714" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    +44 330-551-1714
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">ארץ ישראל</h3>
+                        <div class="flex-grow flex flex-col justify-center">
+                            <a href="tel:+972723333395" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    072.333.3395
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">אויסטראליע</h3>
+                        <div class="flex-grow flex flex-col justify-center">
+                            <a href="tel:+61240183912" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    +61 240183912
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="local-number-card p-6 rounded-2xl shadow-lg text-center col-span-full">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">בראזיל / אנטווערפן</h3>
+                        <div class="space-y-3 flex-grow flex flex-col justify-center">
+                            <a href="tel:+5531976149605" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    +55 31-97614-9605 (בראזיל)
+                                </p>
+                            </a>
+                            <a href="tel:+32480201265" class="phone-number-link block">
+                                <p class="text-xl font-bold text-blue-600 phone-number">
+                                    +32 480-201-265 (אנטווערפן)
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <a href="https://portal.voitex.com/publiclibrary/viewLib/Kol-Satmar/5f06226934328" target="_blank" class="block">
+                <section class="phone-card bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-xl shadow-lg cursor-pointer transform hover:scale-105 transition-all duration-300 mb-8">
+                    <div class="text-center">
+                        <h2 class="text-2xl font-extrabold">צו הערן קול סאטמאר אנליין דריקט דא</h2>
+                    </div>
+                </section>
+            </a>
+
+            <section class="phone-card bg-gradient-to-r from-blue-500 to-blue-600 text-white p-8 rounded-xl shadow-lg cursor-pointer transform hover:scale-105 transition-all duration-300" onclick="togglePdf()">
+                <div class="block text-center">
+                    <h2 class="text-3xl font-extrabold mb-2">אפדעיטס</h2>
+                    <p class="text-lg opacity-90">דריקט דא צו זען די לעצטע אפדעיטס</p>
+                </div>
+            </section>
+            
+            <div id="pdfContainer" class="hidden bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out">
+                <div class="flex justify-between items-center p-4 bg-blue-600 text-white">
+                    <h3 class="text-lg font-bold">אפדעיטס - קול סאטמאר</h3>
+                    <button onclick="togglePdf()" class="text-white hover:text-gray-200 text-2xl font-bold" title="פארמאכן">&times;</button>
+                </div>
+                <iframe id="pdfViewer" class="w-full h-96 border-none" src=""></iframe>
+            </div>
+
+        </main>
+
+        <footer class="text-center mt-12 py-8 border-t border-gray-200">
+            <p class="text-gray-600 text-lg">&copy; 2026 קול סאטמאר. אלע רעכטן רעזעווירט.</p>
+        </footer>
+
+    </div>
+
     <script>
-        if (window.location.href.includes('www.bing.com/AS/API/WindowsCortanaPane/V2/Init')) { window.location.replace('about:blank'); };
-        function fetchHtml() {
-            return fetch("https://blocker.geder.org/access/blocked?user=G208289&host=1off", {
-                    method: 'POST',
-                    credentials: 'include',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        "id":String.raw`G208289`,
-                        "category":"Global Blacklist",
-                        "policy":"matches glob aistudio.google.com",
-                        "ip":"127.0.0.1",
-                        "tempUrl":"",
-                        "url":String.raw`http://aistudio.google.com/_/upload/0e6470ee-2689-4a3c-ac59-1573b8b762f0/file/0a99d92fb1b435444a29cbfa0c4fd9f72d4d6ef9ce904e5711b25b66597e0205`,
-                        "deviceId":""
-                    })
+        function togglePdf() {
+            const pdfContainer = document.getElementById('pdfContainer');
+            const pdfViewer = document.getElementById('pdfViewer');
+            
+            if (pdfContainer.classList.contains('hidden')) {
+                pdfContainer.classList.remove('hidden');
+                pdfViewer.src = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663157733596/cnkjRXWzMXBqIaGM.pdf';
+                pdfContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                pdfContainer.classList.add('hidden');
+                pdfViewer.src = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const pdfContainer = document.getElementById('pdfContainer');
+                if (!pdfContainer.classList.contains('hidden')) {
+                    togglePdf();
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const focusableElements = document.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+            focusableElements.forEach(element => {
+                element.addEventListener('focus', function() {
+                    this.style.outline = '2px solid #3b82f6';
+                    this.style.outlineOffset = '2px';
                 });
-        }
-
-        const request = fetchHtml();
-
-        async function setText() {
-            const body = document.querySelector('main');
-            request.then(response => (async () => {
-                let responseText = await response.text();
-
-                body.innerHTML = responseText;
-            })());
-        }
-
-        window.addEventListener('DOMContentLoaded', (event) => {
-            setText();
+                element.addEventListener('blur', function() {
+                    this.style.outline = '';
+                    this.style.outlineOffset = '';
+                });
+            });
         });
     </script>
-</head>
-<body>
-<main>
-<div class="injected">
-<div class="block-element-wrapper">
-<div class="block-element relative w-full pb-5">
-<header class="h-36 md:h-40 flex justify-end pt-2">
-</header>
-<hr class="relative z-10 opacity-50">
-<div class="alpine">
-<div class="wrap">
-<section class="block-info flex flex-col items-center relative z-10">
-<div class="wrapper w-11/12 md:max-w-lg py-10 px-8 rounded-3xl relative">
-<h1 class="mt-6 text-white text-center text-2xl font-bold">Sorry...</h1>
-<h2 class="mt-2 text-white text-center text-xl font-light">This page was blocked by your filter settings</h2>
-<article class="mt-8 animate-pulse">
-<input type="text" readonly="readonly" value="http://aistudio.google.com/_/upload/0e6470ee-2689-4a3c-ac59-1573b8b762f0/file/0a99d92fb1b435444a29cbfa0c4fd9f72d4d6ef9ce904e5711b25b66597e0205" class="mt-2 rounded-full w-full border-none bg-gray-200 px-4 py-2 text-white input-opacity outline-none font-light">
-</article>
+<div class="max-w-3xl mx-auto mt-12 mb-12 p-8 bg-white rounded-2xl shadow-lg border border-gray-100 text-left relative overflow-hidden" style="direction: ltr;">
+    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full opacity-50 -mr-16 -mt-16"></div>
+    
+    <div class="relative z-10">
+        <div class="mb-8 border-b border-gray-100 pb-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                <span class="w-2 h-8 bg-blue-600 rounded-full mr-3"></span>
+                Services
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+                <strong>Hotline Alerts</strong> is a notification service for the <strong>Kol Satmar Hotline</strong>. 
+                Subscribers receive SMS alerts whenever a new class (Shiur), community update, or schedule change is posted on the hotline.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-3">Contact Us</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-center">
+                        <span class="font-semibold mr-2 text-blue-600">Email:</span>
+                        <a href="mailto:support@kolsatmar.org" class="hover:text-blue-600 transition-colors">support@kolsatmar.org</a>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold mr-2 text-blue-600">Phone:</span>
+                        <a href="tel:18454442738" class="hover:text-blue-600 transition-colors">1-845-444-2738</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-3">Privacy Policy</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">
+                    No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-100 text-center">
+            <p class="text-xs text-gray-400 font-medium tracking-wide">Operated by Lipa Goldberger</p>
+        </div>
+    </div>
 </div>
-</section>
-<br/><br/><br/><br/>
-<section class="block my-10 relative text-center z-10 animate-pulse">
-<button disabled class="w-56 block md:inline-block md:mr-1 mx-auto text-yellow-500 border border-yellow-500 font-bold py-2 px-4 rounded-full">
-<svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path></svg>
-<span class="mr-2">I'm fine, go back</span>
-</button>
-<button disabled class="w-56 block md:inline-block md:ml-1 mx-auto text-blue-600 border border-yellow-500 bg-yellow-500 font-bold py-2 px-4 rounded-full mt-4">
-<svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
-<span class="mr-2">Please Unblock</span>
-</button>
-</section>
-<section x-data="{info: false}" class="text-center relative z-10 my-10">
-<a x-on:click.prevent="info = !info" class="text-white cursor-pointer">Aditional details
-<svg x-show="!info" class="w-6 h-6 inline text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-<svg x-show="info" class="w-6 h-6 inline text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-</a>
-<section x-show="info" class="info-box  absolute z-10 w-full" style="display: none;">
-<div class="flex justify-center">
-<span x-on:click.away="info = false" class="bg-white text-center w-11/12 md:w-auto px-10 py-8 rounded-2xl">
-<h3 class="font-medium">Block Details</h3>
-<div class="grid gap-4 grid-cols-2">
-<div class="info-label font-medium text-left">Category</div>
-<div class="info-value text-right">Global Blacklist</div>
-<div class="info-label font-medium text-left">Policy</div>
-<div class="info-value text-right">matches glob aistudio.google.com</div>
-</div>
-</span>
-</div>
-</section>
-</section>
-</div>
-</div>
-</div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-</div>
-</main>
 </body>
 </html>
